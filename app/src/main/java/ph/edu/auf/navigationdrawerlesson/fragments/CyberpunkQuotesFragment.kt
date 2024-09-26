@@ -27,15 +27,21 @@ class CyberpunkQuotesFragment: Fragment() {
 
         quotesGenerator = QuotesGenerator.generateCyberpunkQuotes().build()
 
-        binding.txtCyberpunkQuote.text = quotesGenerator.getRandomQuote()
+        val quote = quotesGenerator.getRandomQuote()
+        binding.txtCyberpunkQuote.text = quote.quote
+        binding.txtCyberpunkQuoteAuthor.text = quote.author
 
         binding.btnRandomizeQuote.setOnClickListener {
-            binding.txtCyberpunkQuote.text = quotesGenerator.getRandomQuote()
+            val newQuote = quotesGenerator.getRandomQuote()
+            binding.txtCyberpunkQuote.text = newQuote.quote
+            binding.txtCyberpunkQuoteAuthor.text = newQuote.author
         }
 
         binding.btnSaveQuote.setOnClickListener {
-            val quote = binding.txtCyberpunkQuote.text.toString()
-            SharedPreferenceManager.putString(SharedPrefKeys.FAVEQUOTE.key, quote)
+            val quoteText = binding.txtCyberpunkQuote.text.toString()
+            val quoteAuthor = binding.txtCyberpunkQuoteAuthor.text.toString()
+            SharedPreferenceManager.putString(SharedPrefKeys.FAVEQUOTE.key, quoteText)
+            SharedPreferenceManager.putString(SharedPrefKeys.FAVEQUOTE_AUTHOR.key, quoteAuthor)
             Toast.makeText(activity, "Quote saved!", Toast.LENGTH_SHORT).show()
         }
     }

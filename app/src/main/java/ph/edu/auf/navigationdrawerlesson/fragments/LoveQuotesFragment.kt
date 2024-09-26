@@ -35,15 +35,21 @@ class LoveQuotesFragment : Fragment() {
 
         quotesGenerator = QuotesGenerator.generateLoveQuotes().build()
 
-        binding.txtLoveQuote.text = quotesGenerator.getRandomQuote()
+        val quote = quotesGenerator.getRandomQuote()
+        binding.txtLoveQuote.text = quote.quote
+        binding.txtLoveQuoteAuthor.text = quote.author
 
         binding.btnRandomizeQuote.setOnClickListener {
-            binding.txtLoveQuote.text = quotesGenerator.getRandomQuote()
+            val newQuote = quotesGenerator.getRandomQuote()
+            binding.txtLoveQuote.text = newQuote.quote
+            binding.txtLoveQuoteAuthor.text = newQuote.author
         }
 
         binding.btnSaveQuote.setOnClickListener {
-            val quote = binding.txtLoveQuote.text.toString()
-            SharedPreferenceManager.putString(SharedPrefKeys.FAVEQUOTE.key, quote)
+            val quoteText = binding.txtLoveQuote.text.toString()
+            val quoteAuthor = binding.txtLoveQuoteAuthor.text.toString()
+            SharedPreferenceManager.putString(SharedPrefKeys.FAVEQUOTE.key, quoteText)
+            SharedPreferenceManager.putString(SharedPrefKeys.FAVEQUOTE_AUTHOR.key, quoteAuthor)
             Toast.makeText(activity, "Quote saved!", Toast.LENGTH_SHORT).show()
         }
     }

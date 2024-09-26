@@ -23,12 +23,16 @@ class FaveQuotesFragment : Fragment() {
         _binding = FragmentFaveQuotesBinding.inflate(inflater,container,false)
 
         val quote = SharedPreferenceManager.getString(SharedPrefKeys.FAVEQUOTE.key, "No favorite quote saved")
+        val author = SharedPreferenceManager.getString(SharedPrefKeys.FAVEQUOTE_AUTHOR.key, "No author saved")
         binding.txtFaveQuote.text = quote
+        binding.txtFaveQuoteAuthor.text = author
 
         // Delete the favorite quote
         binding.btnRemoveFave.setOnClickListener {
             SharedPreferenceManager.removeString(SharedPrefKeys.FAVEQUOTE.key)
+            SharedPreferenceManager.removeString(SharedPrefKeys.FAVEQUOTE_AUTHOR.key)
             binding.txtFaveQuote.text = "No favorite quote saved"
+            binding.txtFaveQuoteAuthor.text = "No author saved"
             Toast.makeText(activity, "Quote deleted!", Toast.LENGTH_SHORT).show()
         }
 

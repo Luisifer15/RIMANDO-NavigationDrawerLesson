@@ -27,15 +27,22 @@ class WitcherQuotesFragment : Fragment() {
 
         quotesGenerator = QuotesGenerator.generateWitcherQuotes().build()
 
-        binding.txtWitcherQuote.text = quotesGenerator.getRandomQuote()
+        val quote = quotesGenerator.getRandomQuote()
+        binding.txtWitcherQuote.text = quote.quote
+        binding.txtWitcherQuoteAuthor.text = quote.author
+
 
         binding.btnRandomizeQuote.setOnClickListener {
-            binding.txtWitcherQuote.text = quotesGenerator.getRandomQuote()
+            val newQuote = quotesGenerator.getRandomQuote()
+            binding.txtWitcherQuote.text = newQuote.quote
+            binding.txtWitcherQuoteAuthor.text = newQuote.author
         }
 
         binding.btnSaveQuote.setOnClickListener {
-            val quote = binding.txtWitcherQuote.text.toString()
-            SharedPreferenceManager.putString(SharedPrefKeys.FAVEQUOTE.key, quote)
+            val quoteText = binding.txtWitcherQuote.text.toString()
+            val quoteAuthor = binding.txtWitcherQuoteAuthor.text.toString()
+            SharedPreferenceManager.putString(SharedPrefKeys.FAVEQUOTE.key, quoteText)
+            SharedPreferenceManager.putString(SharedPrefKeys.FAVEQUOTE_AUTHOR.key, quoteAuthor)
             Toast.makeText(activity, "Quote saved!", Toast.LENGTH_SHORT).show()
         }
     }

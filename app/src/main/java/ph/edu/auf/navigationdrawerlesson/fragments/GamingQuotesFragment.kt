@@ -27,15 +27,22 @@ class GamingQuotesFragment : Fragment() {
 
         quotesGenerator = QuotesGenerator.generateGamingQuotes().build()
 
-        binding.txtGamingQuote.text = quotesGenerator.getRandomQuote()
+        val quote = quotesGenerator.getRandomQuote()
+        binding.txtGamingQuote.text = quote.quote
+        binding.txtGamingQuoteAuthor.text = quote.author
+
 
         binding.btnRandomizeQuote.setOnClickListener {
-            binding.txtGamingQuote.text = quotesGenerator.getRandomQuote()
+            val newQuote = quotesGenerator.getRandomQuote()
+            binding.txtGamingQuote.text = newQuote.quote
+            binding.txtGamingQuoteAuthor.text = newQuote.author
         }
 
         binding.btnSaveQuote.setOnClickListener {
-            val quote = binding.txtGamingQuote.text.toString()
-            SharedPreferenceManager.putString(SharedPrefKeys.FAVEQUOTE.key, quote)
+            val quoteText = binding.txtGamingQuote.text.toString()
+            val quoteAuthor = binding.txtGamingQuoteAuthor.text.toString()
+            SharedPreferenceManager.putString(SharedPrefKeys.FAVEQUOTE.key, quoteText)
+            SharedPreferenceManager.putString(SharedPrefKeys.FAVEQUOTE_AUTHOR.key, quoteAuthor)
             Toast.makeText(activity, "Quote saved!", Toast.LENGTH_SHORT).show()
         }
     }

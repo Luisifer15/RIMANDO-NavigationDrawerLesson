@@ -30,7 +30,9 @@ class QuotesOfTheDayFragment : Fragment() {
 
         quotesGenerator = QuotesGenerator.generateAllQuotes().build()
 
-        binding.txtQuoteOfDay.text = quotesGenerator.getRandomQuote()
+        val quote = quotesGenerator.getRandomQuote()
+        binding.txtQuoteOfDay.text = quote.quote
+        binding.txtQuoteOfDayAuthor.text = quote.author
     }
 
     override fun onDestroyView() {
