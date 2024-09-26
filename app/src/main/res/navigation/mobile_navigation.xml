@@ -15,6 +15,21 @@
         android:name="ph.edu.auf.navigationdrawerlesson.fragments.LoveQuotesFragment"
         android:label="Love quotes\"
         tools:layout="@layout/fragment_love_quotes" />
+    <fragment
+        android:id="@+id/nav_gaming_quotes"
+        android:name="ph.edu.auf.navigationdrawerlesson.fragments.GamingQuotesFragment"
+        android:label="Gaming quotes"
+        tools:layout="@layout/fragment_gaming_quotes" />
+    <fragment
+        android:id="@+id/nav_cyberpunk_quotes"
+        android:name="ph.edu.auf.navigationdrawerlesson.fragments.CyberpunkQuotesFragment"
+        android:label="Cyberpunk quotes"
+        tools:layout="@layout/fragment_cyberpunk_quotes" />
+    <fragment
+        android:id="@+id/nav_witcher_quotes"
+        android:name="ph.edu.auf.navigationdrawerlesson.fragments.WitcherQuotesFragment"
+        android:label="Witcher quotes"
+        tools:layout="@layout/fragment_witcher_quotes" />
 
     <fragment
         android:id="@+id/nav_fave_quotes"

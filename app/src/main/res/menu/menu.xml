@@ -15,10 +15,27 @@
             android:icon="@drawable/ic_love_quotes"
             />
         <item
+            android:id="@+id/nav_cyberpunk_quotes"
+            android:title="Cyberpunk quotes"
+            android:icon="@drawable/ic_cyberpunk"
+            />
+        <item
+            android:id="@+id/nav_witcher_quotes"
+            android:title="Witcher quotes"
+            android:icon="@drawable/ic_witcher"
+            />
+        <item
+            android:id="@+id/nav_gaming_quotes"
+            android:title="Gaming quotes"
+            android:icon="@drawable/ic_gaming"
+            />
+        <item
             android:id="@+id/nav_fave_quotes"
             android:title="Fave quotes"
             android:icon="@drawable/ic_save"
             />
+
+
     </group>
 
 </menu>
