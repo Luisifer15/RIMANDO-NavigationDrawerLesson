@@ -2,56 +2,85 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_constraint_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/root_constraint_layout"
+
     tools:context=".fragments.CyberpunkQuotesFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txt_cyberpunk_quote"
-        android:padding="20dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textAlignment="textStart"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txt_cyberpunk_quote_author"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_cyberpunk_quote" />
-
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="367dp"
+        android:layout_height="310dp"
+        android:layout_marginTop="100dp"
+        android:background="#730000"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_cyberpunk_quote" >
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txt_cyberpunk_quote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rajdhani_bold"
+            android:padding="20dp"
+            android:text="Sample Cyberpunk Quote"
+            android:textAlignment="center"
+            android:textColor="#5bead5"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.313" />
+
+        <TextView
+            android:id="@+id/txt_cyberpunk_quote_author"
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/rajdhani_medium"
+            android:text="Author Here"
+            android:textAlignment="viewEnd"
+            android:textColor="#5bead5"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="382dp"
+        android:layout_height="114dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/btn_randomize_quote"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Randomize quote" />
+            android:backgroundTint="#FDF500"
+            android:text="Randomize quote"
+            android:textColor="@color/black"
+            app:icon="@drawable/ic_random"
+            app:iconTint="#161313" />
 
         <Button
             android:id="@+id/btn_save_quote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#E91E63"
-            android:text="Save quote" />
+            android:backgroundTint="#fdf500"
+            android:text="Save quote"
+            android:textColor="@color/black"
+            app:icon="@drawable/ic_save"
+            app:iconTint="#161313" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
